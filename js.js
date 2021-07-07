@@ -25,8 +25,11 @@ async function main() {
 
     let helper = Helper(lib);
 
-    // While loop exists to help detect memory leaks.
-    //while (true) {
+    // While loop exists to help detect memory leaks:
+    // If you leave it running with a sufficiently large malloc, it will
+    // eventually crash.
+
+    // while (true) {
         let a = "1", b = "2";
         let ca = helper.to_cstr(a), cb = helper.to_cstr(b);
         let rawString = lib._add_two_strings(ca.c_str, cb.c_str);
@@ -34,7 +37,7 @@ async function main() {
     
         let jsString = helper.from_cstr(rawString, true);
         console.log(jsString);
-    //}
+    // }
 }
 
 main()
