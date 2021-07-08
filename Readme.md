@@ -1,7 +1,7 @@
 # Minimal JS/WASM Interop Example
 This is a short example of compiling WASM code and interoperability with JS.
 
-Tested with node, should work in browser.
+Tested with node. Browser is a bit more complex.
 
 It shows how to pass strings between the two runtimes and how to allocate and deallocate memory, something that was surprisingly documentation-dire.
 
